@@ -1,11 +1,12 @@
 #ifndef TASK_H
 #define TASK_H
+
 #include <stdbool.h>
 
 typedef struct Task {
     char name[50];
-    char description[256];
-    char deadline[10];
+    char description[255];
+    char deadline[11];
     int priority;
     char category[20];
     bool completed;

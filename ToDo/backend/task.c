@@ -5,15 +5,22 @@
 
 Task* addTask(Task* head, char* name, char* description, char* deadline, int priority, char* category) {
     Task* newTask = (Task*)malloc(sizeof(Task));
-    strcpy(newTask->name, name);
-    strcpy(newTask->description, description);
-    strcpy(newTask->deadline, deadline);
+    if (newTask == NULL) {
+        printf("Memory allocation failed!\n");
+        return head;
+    }
+
+    strcpy_s(newTask->name, sizeof(newTask->name), name);
+    strcpy_s(newTask->description, sizeof(newTask->description), description);
+    strcpy_s(newTask->deadline, sizeof(newTask->deadline), deadline);
     newTask->priority = priority;
-    strcpy(newTask->category, category);
+    strcpy_s(newTask->category, sizeof(newTask->category), category);
     newTask->completed = false;
     newTask->next = head;
+
     return newTask;
 }
+
 
 void displayTasks(Task* head) {
     Task* current = head;
