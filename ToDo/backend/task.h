@@ -17,5 +17,7 @@ Task* addTask(Task* head, char* name, char* description, char* deadline, int pri
 void displayTasks(Task* head);
 void markTaskComplete(Task* head, char* name);
 Task* deleteTask(Task* head, char* name);
+void saveTasksToFile(Task* head, const char* filename);
+Task* loadTasksFromFile(const char* filename);
 
 #endif

@@ -138,6 +138,9 @@
   <ItemGroup>
     <ClInclude Include="backend\task.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="backend\tasks.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

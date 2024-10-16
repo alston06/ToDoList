@@ -10,6 +10,8 @@ int main() {
     int choice, priority;
     char name[50], description[255], deadline[11], category[20];
 
+    taskList = loadTasksFromFile("tasks.txt");
+
     while (1) {
         printf("1. Add Task\n2. View Tasks\n3. Mark Task Complete\n4. Delete Task\n5. Exit\nEnter your choice: ");
         scanf_s("%d", &choice);
@@ -42,6 +44,14 @@ int main() {
             taskList = deleteTask(taskList, name);
             break;
         case 5:
+            if (taskList == NULL) {
+                printf("No tasks to save.\n");
+            }
+            else {
+                printf("Saving tasks...\n");
+                saveTasksToFile(taskList, "tasks.txt");
+            }
+            freeTasks(taskList);
             return 0;
         default:
             printf("Invalid choice!\n");
